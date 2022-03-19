@@ -44,6 +44,11 @@ public class Drive extends Subsystem{
         l1master.set(ControlMode.PercentOutput, mLeft_command); 
     }
 
+    public void quickTurn(double turn){
+        r1master.set(ControlMode.PercentOutput, turn);
+        l1master.set(ControlMode.PercentOutput, -turn);
+    }
+
 
     public void stop(){
         // only "commands" master motors to stop because the slave motors will copy the master
@@ -51,5 +56,4 @@ public class Drive extends Subsystem{
         r1master.set(ControlMode.PercentOutput, 0);
     }
 }
-
 
